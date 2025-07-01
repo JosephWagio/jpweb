@@ -74,14 +74,6 @@ const testimonials = [
 ]
 
 const Testimonials = () => {
-    // const renderStars = (rating) => {
-    //     return Array.from({ length: 5 }, (_, i) => (
-    //         <span key={i} className={`testimonials__star ${i < rating ? "testimonials__star--filled" : ""}`}>
-    //             ★
-    //         </span>
-    //     ))
-    // }
-
     return (
         <div className="testimonials section__padding">
             <div className="testimonials__container">
@@ -149,25 +141,11 @@ const Testimonials = () => {
                                         </div>
 
                                         <div className="testimonials__content">
-                                            {/* <div className="testimonials__rating">
-                                                {renderStars(testimonial.rating)}
-                                            </div> */}
-
                                             <blockquote className="testimonials__quote">
                                                 {testimonial.quote}
                                             </blockquote>
 
                                             <div className="testimonials__author">
-                                                {/* <div className="testimonials__avatar">
-                                                    <img
-                                                    src={testimonial.image || "/placeholder.svg"}
-                                                    alt={`${testimonial.author} profile picture`}
-                                                    width={80}
-                                                    height={80}
-                                                    className="testimonials__image"
-                                                    />
-                                                    <div className="testimonials__avatar-ring"></div>
-                                                </div> */}
                                                 <div className="testimonials__author-info">
                                                     <h3 className="testimonials__name">{testimonial.author}</h3>
                                                     <p className="testimonials__role">{testimonial.role}</p>
