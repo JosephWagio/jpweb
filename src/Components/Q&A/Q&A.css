@@ -1,0 +1,934 @@
+/* Base Styles */
+.objection-handling {
+    background: linear-gradient(135deg, var(--color-bg-section) 0%, var(--color-bg-light) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.objection-handling::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 10% 20%, rgba(139, 92, 246, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 90% 80%, rgba(20, 184, 166, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.section__padding {
+    padding: 6rem 3rem;
+}
+
+.objection-handling__container {
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* Header Section */
+.objection-handling__header {
+    text-align: center;
+    margin-bottom: 5rem;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.objection-handling__title {
+    font-family: var(--font-base);
+    font-weight: 800;
+    font-size: 42px;
+    line-height: 1.2;
+    color: var(--color-h-grey);
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, var(--color-h-grey) 0%, var(--color-purple) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.objection-handling__subtitle {
+    font-family: var(--font-family);
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--color-sh-grey);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+.objection-handling__title-divider {
+    width: 80px;
+    height: 4px;
+    /* background: linear-gradient(90deg, var(--color-purple) 0%, var(--color-teal) 100%); */
+    border-radius: 2px;
+    margin: 0 auto;
+}
+
+/* Content Grid */
+.objection-handling__content {
+    margin-bottom: 6rem;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.objection-handling__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Card Styles */
+.objection-handling__card {
+    background: var(--color-white);
+    border-radius: var(--border-radius-xl);
+    padding: 2.5rem;
+    position: relative;
+    transition: var(--transition-smooth);
+    border: 1px solid rgba(139, 92, 246, 0.1);
+    overflow: hidden;
+    animation: fadeInUp 0.6s ease-out both;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+}
+
+.objection-handling__card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-purple) 0%, var(--color-teal) 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: var(--transition-smooth);
+}
+
+.objection-handling__card--purple::before {
+    background: linear-gradient(90deg, var(--color-purple) 0%, var(--color-purple-light) 100%);
+}
+
+.objection-handling__card--teal::before {
+    background: linear-gradient(90deg, var(--color-teal) 0%, var(--color-teal-light) 100%);
+}
+
+.objection-handling__card--gold::before {
+    background: linear-gradient(90deg, var(--color-gold) 0%, var(--color-gold-light) 100%);
+}
+
+.objection-handling__card:hover::before {
+    transform: scaleX(1);
+}
+
+.objection-handling__card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-large);
+    border-color: var(--color-purple-light);
+}
+
+.objection-handling__card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.02) 0%, rgba(20, 184, 166, 0.02) 100%);
+    opacity: 0;
+    transition: var(--transition-smooth);
+    pointer-events: none;
+    border-radius: var(--border-radius-xl);
+}
+
+.objection-handling__card:hover .objection-handling__card-overlay {
+    opacity: 1;
+}
+
+.objection-handling__card-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+    transform: translate(-50%, -50%) scale(0);
+    transition: var(--transition-bounce);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.objection-handling__card:hover .objection-handling__card-glow {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Card Header */
+.objection-handling__card-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.objection-handling__icon-wrapper {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+.objection-handling__icon {
+    width: 48px;
+    height: 48px;
+    color: var(--color-purple);
+    position: relative;
+    z-index: 2;
+    transition: var(--transition-bounce);
+}
+
+.objection-handling__card--teal .objection-handling__icon {
+    color: var(--color-teal);
+}
+
+.objection-handling__card--gold .objection-handling__icon {
+    color: var(--color-gold);
+}
+
+.objection-handling__card:hover .objection-handling__icon {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.objection-handling__icon-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, var(--color-purple-ultra-light) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: var(--transition-bounce);
+    z-index: 1;
+}
+
+.objection-handling__card--teal .objection-handling__icon-bg {
+    background: radial-gradient(circle, rgba(20, 184, 166, 0.1) 0%, transparent 70%);
+}
+
+.objection-handling__card--gold .objection-handling__icon-bg {
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.1) 0%, transparent 70%);
+}
+
+.objection-handling__card:hover .objection-handling__icon-bg {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.objection-handling__concern {
+    font-family: var(--font-base);
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1.4;
+    color: var(--color-h-grey);
+    font-style: italic;
+    position: relative;
+    z-index: 2;
+}
+
+/* Solution Section */
+.objection-handling__solution {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(20, 184, 166, 0.05) 100%);
+    border-radius: var(--border-radius-md);
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    transition: var(--transition-smooth);
+}
+
+.objection-handling__card:hover .objection-handling__solution {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.08) 0%, rgba(20, 184, 166, 0.08) 100%);
+}
+
+.objection-handling__check-wrapper {
+    margin-bottom: 1rem;
+}
+
+.objection-handling__check-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--color-success);
+    transition: var(--transition-bounce);
+}
+
+.objection-handling__card:hover .objection-handling__check-icon {
+    transform: scale(1.1);
+}
+
+.objection-handling__solution-text {
+    font-family: var(--font-family);
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--color-sh-grey);
+    margin: 0;
+    font-weight: 500;
+    transition: var(--transition-smooth);
+}
+
+.objection-handling__card:hover .objection-handling__solution-text {
+    color: var(--color-h-grey);
+}
+
+/* CTA Section */
+.objection-handling__cta {
+    background: linear-gradient(135deg, var(--color-bg-cta) 0%, var(--color-white) 100%);
+    border-radius: var(--border-radius-xl);
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+.objection-handling__cta-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.objection-handling__cta-content {
+    text-align: center;
+}
+
+.objection-handling__cta-title {
+    font-family: var(--font-base);
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.2;
+    color: var(--color-h-grey);
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--color-h-grey) 0%, var(--color-purple) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.objection-handling__cta-subtitle {
+    font-family: var(--font-family);
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--color-sh-grey);
+    margin-bottom: 3rem;
+}
+
+/* Form Styles */
+.objection-handling__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.objection-handling__form-inputs {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    max-width: 700px;
+}
+
+.objection-handling__input-group {
+    position: relative;
+    flex: 1;
+}
+
+.objection-handling__input {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    border: 2px solid #e2e8f0;
+    border-radius: var(--border-radius-md);
+    font-family: var(--font-family);
+    font-size: 16px;
+    color: var(--color-h-grey);
+    background: var(--color-white);
+    transition: var(--transition-smooth);
+    outline: none;
+}
+
+.objection-handling__input::placeholder {
+    color: var(--color-c-grey);
+    opacity: 0.7;
+}
+
+.objection-handling__input:focus,
+.objection-handling__input--focused {
+    border-color: var(--color-purple);
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+    transform: translateY(-2px);
+}
+
+.objection-handling__input-label {
+    position: absolute;
+    top: -8px;
+    left: 12px;
+    background: var(--color-white);
+    padding: 0 8px;
+    font-family: var(--font-family);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--color-purple);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: var(--transition-smooth);
+    pointer-events: none;
+}
+
+.objection-handling__input:focus+.objection-handling__input-label,
+.objection-handling__input--focused+.objection-handling__input-label {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* CTA Button */
+.objection-handling__cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2.5rem;
+    background: linear-gradient(135deg, var(--color-purple) 0%, var(--color-purple-hover) 100%);
+    color: var(--color-white);
+    border: none;
+    border-radius: 50px;
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+    min-width: 160px;
+    justify-content: center;
+}
+
+.objection-handling__cta-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.objection-handling__cta-button:hover::before {
+    left: 100%;
+}
+
+.objection-handling__cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-large);
+    background: linear-gradient(135deg, var(--color-purple-hover) 0%, var(--color-purple) 100%);
+}
+
+.objection-handling__cta-button:active {
+    transform: translateY(-1px);
+}
+
+.objection-handling__cta-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.objection-handling__button-text {
+    transition: var(--transition-smooth);
+}
+
+.objection-handling__button-icon {
+    width: 18px;
+    height: 18px;
+    transition: var(--transition-smooth);
+}
+
+.objection-handling__cta-button:hover .objection-handling__button-icon {
+    transform: translateX(4px);
+}
+
+/* Spinner */
+.objection-handling__spinner {
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top: 2px solid var(--color-white);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* CTA Decorations */
+.objection-handling__cta-decoration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.objection-handling__cta-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+    animation: float 6s ease-in-out infinite;
+}
+
+.objection-handling__cta-circle--1 {
+    width: 200px;
+    height: 200px;
+    top: -100px;
+    right: -100px;
+    animation-delay: 0s;
+}
+
+.objection-handling__cta-circle--2 {
+    width: 150px;
+    height: 150px;
+    bottom: -75px;
+    left: -75px;
+    animation-delay: 2s;
+    background: radial-gradient(circle, rgba(20, 184, 166, 0.1) 0%, transparent 70%);
+}
+
+.objection-handling__cta-circle--3 {
+    width: 100px;
+    height: 100px;
+    top: 50%;
+    left: 10%;
+    animation-delay: 4s;
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.1) 0%, transparent 70%);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px) scale(1);
+    }
+
+    50% {
+        transform: translateY(-20px) scale(1.05);
+    }
+}
+
+/* Responsive Design Updates */
+
+/* 1024px and below - Keep 3 columns but reduce spacing */
+@media (max-width: 1024px) {
+    .section__padding {
+        padding: 4rem 2rem;
+    }
+
+    .objection-handling__title {
+        font-size: 36px;
+    }
+
+    .objection-handling__subtitle {
+        font-size: 16px;
+    }
+
+    .objection-handling__grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+
+    .objection-handling__card {
+        padding: 2rem;
+        min-height: 300px;
+    }
+
+    .objection-handling__cta-title {
+        font-size: 32px;
+    }
+
+    .objection-handling__cta-subtitle {
+        font-size: 16px;
+    }
+
+    .objection-handling__form-inputs {
+        max-width: 600px;
+    }
+}
+
+/* 768px and below - Switch to single column */
+@media (max-width: 768px) {
+    .section__padding {
+        padding: 3rem 1.5rem;
+    }
+
+    .objection-handling__header {
+        margin-bottom: 3rem;
+    }
+
+    .objection-handling__title {
+        font-size: 32px;
+    }
+
+    .objection-handling__subtitle {
+        font-size: 15px;
+    }
+
+    .objection-handling__grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .objection-handling__card {
+        padding: 1.5rem;
+        min-height: 280px;
+    }
+
+    .objection-handling__icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .objection-handling__concern {
+        font-size: 16px;
+    }
+
+    .objection-handling__solution-text {
+        font-size: 14px;
+    }
+
+    .objection-handling__cta-container {
+        padding: 3rem 1.5rem;
+    }
+
+    .objection-handling__cta-title {
+        font-size: 28px;
+    }
+
+    .objection-handling__cta-subtitle {
+        font-size: 15px;
+        margin-bottom: 2.5rem;
+    }
+
+    .objection-handling__form-inputs {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .objection-handling__input {
+        padding: 0.875rem 1rem;
+    }
+
+    .objection-handling__cta-button {
+        padding: 0.875rem 2rem;
+        font-size: 15px;
+    }
+}
+
+/* 450px and below */
+@media (max-width: 450px) {
+    .section__padding {
+        padding: 2.5rem 1rem;
+    }
+
+    .objection-handling__title {
+        font-size: 28px;
+    }
+
+    .objection-handling__subtitle {
+        font-size: 14px;
+    }
+
+    .objection-handling__card {
+        padding: 1.25rem;
+        min-height: 260px;
+    }
+
+    .objection-handling__icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .objection-handling__concern {
+        font-size: 15px;
+    }
+
+    .objection-handling__solution {
+        padding: 1.25rem;
+    }
+
+    .objection-handling__solution-text {
+        font-size: 13px;
+    }
+
+    .objection-handling__cta-container {
+        padding: 2.5rem 1rem;
+    }
+
+    .objection-handling__cta-title {
+        font-size: 24px;
+    }
+
+    .objection-handling__cta-subtitle {
+        font-size: 14px;
+    }
+
+    .objection-handling__input {
+        padding: 0.75rem;
+        font-size: 15px;
+    }
+
+    .objection-handling__cta-button {
+        padding: 0.75rem 1.5rem;
+        font-size: 14px;
+    }
+}
+
+/* 375px and below */
+@media (max-width: 375px) {
+    .section__padding {
+        padding: 2rem 0.875rem;
+    }
+
+    .objection-handling__title {
+        font-size: 24px;
+    }
+
+    .objection-handling__subtitle {
+        font-size: 13px;
+    }
+
+    .objection-handling__card {
+        padding: 1rem;
+        min-height: 240px;
+    }
+
+    .objection-handling__icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    .objection-handling__concern {
+        font-size: 14px;
+    }
+
+    .objection-handling__solution {
+        padding: 1rem;
+    }
+
+    .objection-handling__solution-text {
+        font-size: 12px;
+    }
+
+    .objection-handling__cta-title {
+        font-size: 22px;
+    }
+
+    .objection-handling__cta-subtitle {
+        font-size: 13px;
+    }
+
+    .objection-handling__input {
+        padding: 0.625rem;
+        font-size: 14px;
+    }
+
+    .objection-handling__cta-button {
+        padding: 0.625rem 1.25rem;
+        font-size: 13px;
+    }
+}
+
+/* 320px and below */
+@media (max-width: 320px) {
+    .section__padding {
+        padding: 1.5rem 0.75rem;
+    }
+
+    .objection-handling__header {
+        margin-bottom: 2rem;
+    }
+
+    .objection-handling__title {
+        font-size: 22px;
+    }
+
+    .objection-handling__subtitle {
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+    .objection-handling__content {
+        margin-bottom: 4rem;
+    }
+
+    .objection-handling__card {
+        padding: 0.875rem;
+        min-height: 220px;
+    }
+
+    .objection-handling__icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .objection-handling__icon-bg {
+        width: 60px;
+        height: 60px;
+    }
+
+    .objection-handling__concern {
+        font-size: 13px;
+        margin-bottom: 1rem;
+    }
+
+    .objection-handling__solution {
+        padding: 0.875rem;
+    }
+
+    .objection-handling__check-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .objection-handling__solution-text {
+        font-size: 11px;
+        line-height: 1.5;
+    }
+
+    .objection-handling__cta-container {
+        padding: 2rem 0.75rem;
+    }
+
+    .objection-handling__cta-title {
+        font-size: 20px;
+    }
+
+    .objection-handling__cta-subtitle {
+        font-size: 12px;
+        margin-bottom: 2rem;
+    }
+
+    .objection-handling__form {
+        gap: 1.5rem;
+    }
+
+    .objection-handling__input {
+        padding: 0.5rem;
+        font-size: 13px;
+    }
+
+    .objection-handling__input-label {
+        font-size: 11px;
+    }
+
+    .objection-handling__cta-button {
+        padding: 0.5rem 1rem;
+        font-size: 12px;
+        min-width: 120px;
+    }
+
+    .objection-handling__button-icon,
+    .objection-handling__spinner {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+
+    .objection-handling__card,
+    .objection-handling__icon,
+    .objection-handling__cta-circle {
+        animation: none;
+        transition: none;
+    }
+
+    .objection-handling__card:hover,
+    .objection-handling__cta-button:hover {
+        transform: none;
+    }
+
+    .objection-handling__spinner {
+        animation: none;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+
+    .objection-handling__title,
+    .objection-handling__cta-title {
+        -webkit-text-fill-color: var(--color-h-grey);
+        background: none;
+    }
+
+    .objection-handling__card {
+        border: 2px solid var(--color-purple);
+    }
+
+    .objection-handling__input {
+        border-width: 2px;
+    }
+}
+
+/* Focus styles for accessibility */
+.objection-handling__cta-button:focus-visible,
+.objection-handling__input:focus-visible {
+    outline: 2px solid var(--color-purple);
+    outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+    .objection-handling {
+        background: white;
+    }
+
+    .objection-handling::before,
+    .objection-handling__card-glow,
+    .objection-handling__card-overlay,
+    .objection-handling__cta-decoration {
+        display: none;
+    }
+
+    .objection-handling__card {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
+
+    .objection-handling__form {
+        display: none;
+    }
+}

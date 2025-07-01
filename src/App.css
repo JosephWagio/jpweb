@@ -40,7 +40,7 @@ ul, li, a{
 }
 
 .background_bg {
-  background: rgba(35, 0, 102, 0.2);
+  background: var(--color-white);
 }
 
 .title-divider {
@@ -48,7 +48,7 @@ ul, li, a{
   width: 100px;
   height: 5px;
   border-radius: 20px;
-  background: var(--color-teal);
+  background: #230066;
 }
 
 @media screen and (max-width: 850px) {
