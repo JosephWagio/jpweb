@@ -46,9 +46,9 @@ const AboutUs = () => {
         <div className="aboutUs section__padding" id='about'>
             <div className="about-us__container">
                 <header className="about-us__header">
-                    <h1 className="about-us__title">About JP WEB</h1>
+                    {/* <h1 className="about-us__title">About JP WEB</h1> */}
                     <div className="about-us__intro">
-                        <p className="about-us__intro-text">
+                        <p className="about-us__intro-text about-us__intro-text--emphasis">
                             You didn't start your business to drown in admin or juggle clunky tools. But for many Nigerian businesses, that's the reality.
                         </p>
                         <p className="about-us__intro-text about-us__intro-text--emphasis">
