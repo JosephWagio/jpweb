@@ -22,18 +22,21 @@ const Header = () => {
                   <p className='header__description'>At JP WEB, we craft modern digital experiences with cutting-edge technology,
                       sleek design, and performance in mind. Let’s take your online presence to the next level.</p>
                   <div className="header__buttons">
-                    <button className="header__cta-button header__cta-button--primary">
-                      <span>Book A Call Now</span>
-                      <svg className="header__cta-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                        <path
-                          d="M4.16667 10H15.8333M15.8333 10L10.8333 5M15.8333 10L10.8333 15"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </button>
+                    <a href="https://tally.so/r/w2G5Qj" target="_blank" rel="noopener noreferrer">
+                      <button className="header__cta-button header__cta-button--primary">
+                        <span>Book A Call Now</span>
+                        <svg className="header__cta-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                          <path
+                            d="M4.16667 10H15.8333M15.8333 10L10.8333 5M15.8333 10L10.8333 15"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </button>
+                    </a>
+
 
                     <a
                       href="https://wa.me/2349023843604?text=Hi%20JPWeb%2C%20I'm%20interested%20in%20your%20services."

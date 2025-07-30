@@ -48,19 +48,53 @@ const ObjectionHandling = () => {
       }))
     }
       
-    const handleSubmit = async (e) => {
-      e.preventDefault()
-      setIsSubmitting(true)
-      
-      // Simulate form submission
-      await new Promise((resolve) => setTimeout(resolve, 2000))
-  
-       console.log("Form submitted:", formData)
-      setIsSubmitting(false)
-  
-      // Reset form
-      setFormData({ name: "", email: "", company: "" })
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setIsSubmitting(true);
+
+  const message = `
+    Hi,
+
+    My name is ${formData.name}, from ${formData.company}.
+    You can reach me at ${formData.email}.
+
+    I'm interested in your services and would love to talk further.
+
+    Best regards,
+    ${formData.name}
+  `;
+
+  try {
+    const response = await fetch("https://formspree.io/f/mgvzzoad", {
+      method: "POST",
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        name: formData.name,
+        email: formData.email,
+        message: message,
+      }),
+    });
+
+    const result = await response.json();
+    if (result.ok || result.success) {
+      alert("Your message has been sent. We'll be in touch soon.");
+      setFormData({ name: "", email: "", company: "" });
+    } else {
+      alert("Submission failed. Please try again.");
     }
+  } catch (err) {
+    console.error(err);
+    alert("Error submitting form.");
+  } finally {
+    setIsSubmitting(false);
+  }
+};
+
+
+
 
     return (
         <div className="objection-handling section__padding" id="faq">
@@ -109,7 +143,7 @@ const ObjectionHandling = () => {
                 <div className="objection-handling__cta" id="contact">
                     <div className="objection-handling__cta-container">
                         <div className="objection-handling__cta-content">
-                            <h2 className="objection-handling__cta-title">Book A Call Today</h2>
+                            <h2 className="objection-handling__cta-title">Get In Touch Today</h2>
                             <p className="objection-handling__cta-subtitle">
                                 Don't struggle anymore to manage tasks. Everything is easy to setup
                             </p>
@@ -169,7 +203,7 @@ const ObjectionHandling = () => {
                                 </div>
 
                                 <button type="submit" className="objection-handling__cta-button" disabled={isSubmitting}>
-                                    <span className="objection-handling__button-text">{isSubmitting ? "Booking..." : "Book Now"}</span>
+                                    <span className="objection-handling__button-text">{isSubmitting ? "Booking..." : "Contact Us"}</span>
                                     {isSubmitting ? (
                                         <div className="objection-handling__spinner"></div>
                                     ) : (

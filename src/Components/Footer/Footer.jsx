@@ -140,7 +140,7 @@ const Footer = () => {
           <div className="footer__bottom-content">
             <div className="footer__copyright">
               <p className="footer__copyright-text">
-                © 2025 JP WEB. All rights reserved. Made with <span className="footer__heart">❤️</span> in Nigeria
+                © 2025 JP WEB. All rights reserved.
               </p>
             </div>
 
