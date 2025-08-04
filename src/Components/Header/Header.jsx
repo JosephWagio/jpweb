@@ -1,10 +1,21 @@
-import React from 'react';
+import { useState, useRef } from 'react';
 
 import './Header.css'
 import Logo from '../../assets/Logo.png';
 import HeaderImg from '../../assets/header_img.png'
+import HeaderVid from '../../assets/header_video.mp4'
 
 const Header = () => {
+  const [isMuted, setIsMuted] = useState(true)
+  const videoRef = useRef(null)
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted
+      setIsMuted(!isMuted)
+    }
+  }
+
   return (
       <div className="header">
           <div className="header__logo">
@@ -61,7 +72,72 @@ const Header = () => {
 
               <div className="header__content-image">
                 <div className="header__image-container">
-                  <img src={HeaderImg} alt="Header" className="header__image floating"/>
+                  <video
+                    className="header__image floating"
+                    autoPlay
+                    loop
+                    muted={isMuted} // ← This allows React to manage the mute state
+                    playsInline
+                    preload="metadata"
+                    poster="/placeholder.svg?height=400&width=680&text=Header+Video"
+                    ref={videoRef}
+                  >
+                    <source src={HeaderVid} type="video/mp4" />
+                    <source src="../../assets/header_video.webm" type="video/webm" />
+                    {/* Fallback image for browsers that don't support video */}
+                    <img
+                      src={HeaderImg}
+                      alt="Header Content"
+                      className="header__image"
+                    />
+                  </video>
+
+                  {/* Mute/Unmute Button */}
+                  <button
+                    onClick={toggleMute}
+                    className="header__mute-button"
+                    aria-label={isMuted ? "Unmute video" : "Mute video"}
+                    title={isMuted ? "Click to unmute" : "Click to mute"}
+                  >
+                    {isMuted ? (
+                      // Muted Icon
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="header__mute-icon">
+                        <path
+                          d="M11 5L6 9H2V15H6L11 19V5Z"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                        <path
+                          d="M23 9L17 15M17 9L23 15"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    ) : (
+                      // Unmuted Icon
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="header__mute-icon">
+                        <path
+                          d="M11 5L6 9H2V15H6L11 19V5Z"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                        <path
+                          d="M19.07 4.93C20.9447 6.80528 21.9979 9.34836 21.9979 12C21.9979 14.6516 20.9447 17.1947 19.07 19.07M15.54 8.46C16.4774 9.39764 17.0039 10.6692 17.0039 12C17.0039 13.3308 16.4774 14.6024 15.54 15.54"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    )}
+                  </button>
+
                   <div className="header__image-glow"></div>
                 </div>
               </div>
