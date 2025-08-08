@@ -3,7 +3,7 @@ import { useState, useRef } from 'react';
 import './Header.css'
 import Logo from '../../assets/Logo.png';
 import HeaderImg from '../../assets/header_img.png'
-import HeaderVid from '../../assets/header_video.mp4'
+import HeaderVid from '../../../public/assets/header_video.mp4'
 
 const Header = () => {
   const [isMuted, setIsMuted] = useState(true)
