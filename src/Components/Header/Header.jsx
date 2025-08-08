@@ -3,7 +3,7 @@ import { useState, useRef } from 'react';
 import './Header.css'
 import Logo from '../../assets/Logo.png';
 import HeaderImg from '../../assets/header_img.png'
-import HeaderVid from '../../../public/assets/header_video.mp4'
+// import HeaderVid from '../../../public/assets/header_video.mp4'
 
 const Header = () => {
   const [isMuted, setIsMuted] = useState(true)
@@ -82,7 +82,7 @@ const Header = () => {
                     poster="/placeholder.svg?height=400&width=680&text=Header+Video"
                     ref={videoRef}
                   >
-                    <source src={HeaderVid} type="video/mp4" />
+                    <source src="/assets/header_video.mp4" type="video/mp4" />
                     <source src="../../assets/header_video.webm" type="video/webm" />
                     {/* Fallback image for browsers that don't support video */}
                     <img
