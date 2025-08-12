@@ -91,14 +91,15 @@ const Header = () => {
               </div>
             )}
 
-            <iframe
-              src="https://drive.google.com/file/d/1EHmiFVjiyBUeRx6VNX5SPTaSeWEYPu39/preview"
-              width="640"
-              height="360"
-              allow="autoplay"
-              style={{ border: "none", display: loading ? "none" : "block" }}
-              onLoad={() => setLoading(false)} // Hide loader when iframe loads
-            ></iframe>
+            <div className="video-responsive">
+              <iframe
+                src="https://drive.google.com/file/d/1EHmiFVjiyBUeRx6VNX5SPTaSeWEYPu39/preview"
+                allow="autoplay"
+                style={{ border: "none", display: loading ? "none" : "block" }}
+                onLoad={() => setLoading(false)} // Hide loader when iframe loads
+                className="header__video-iframe"
+              ></iframe>
+            </div>
 
             <div className="header__image-glow"></div>
           </div>
