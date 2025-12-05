@@ -91,6 +91,17 @@
   max-width: 600px;
 }
 
+.header__trust-badge {
+  font-family: var(--font-family);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-purple);
+  margin-bottom: 1rem;
+  animation: fadeInUp 0.8s ease-out 0.1s both;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
 .header__title {
   font-family: var(--font-base);
   font-weight: 800;
@@ -111,11 +122,36 @@
 
 .header__description {
   font-family: var(--font-family);
-  font-size: 18px;
+  font-size: 14px;
   line-height: 1.6;
   color: var(--color-sh-grey);
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
   animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.header__benefits {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0 0 0;
+  animation: fadeInUp 0.8s ease-out 0.5s both;
+}
+
+.header__benefits li {
+  font-family: var(--font-family);
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--color-sh-grey);
+  margin-bottom: 0.75rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.header__benefits li::before {
+  content: "●";
+  position: absolute;
+  left: 0;
+  color: var(--color-purple);
+  font-size: 12px;
 }
 
 /* Button Container */
@@ -136,7 +172,7 @@
   border: 2px solid transparent;
   font-family: var(--font-family);
   font-weight: 600;
-  font-size: 18px;
+  font-size: 16px;
   cursor: pointer;
   position: relative;
   overflow: hidden;
@@ -422,6 +458,14 @@
     line-height: 1.6;
   }
 
+  .header__trust-badge {
+    font-size: 13px;
+  }
+
+  .header__benefits li {
+    font-size: 15px;
+  }
+
   .header__image {
     width: 500px;
   }
@@ -463,9 +507,23 @@
   }
 
   .header__description {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.6;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .header__trust-badge {
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .header__benefits {
+    margin: 1.5rem 0 0 0;
+  }
+
+  .header__benefits li {
+    font-size: 14px;
+    text-align: left;
   }
 
   .header__buttons {
@@ -520,6 +578,14 @@
   .header__description {
     font-size: 14px;
     line-height: 1.6;
+  }
+
+  .header__trust-badge {
+    font-size: 11px;
+  }
+
+  .header__benefits li {
+    font-size: 13px;
   }
 
   .header__image {
@@ -595,6 +661,14 @@
     line-height: 1.5;
   }
 
+  .header__trust-badge {
+    font-size: 10px;
+  }
+
+  .header__benefits li {
+    font-size: 12px;
+  }
+
   .header__image {
     width: 280px;
   }
@@ -647,6 +721,14 @@
     font-size: 12px;
     line-height: 1.5;
     margin-bottom: 1.5rem;
+  }
+
+  .header__trust-badge {
+    font-size: 9px;
+  }
+
+  .header__benefits li {
+    font-size: 11px;
   }
 
   .header__image {

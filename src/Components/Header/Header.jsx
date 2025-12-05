@@ -21,13 +21,21 @@ const Header = () => {
 
       <div className="header__content section__padding">
         <div className="header__content-text">
+          <p className="header__trust-badge">
+            Trusted by 30+ Nigerian businesses in tech, finance & e-commerce
+          </p>
           <h1 className="header__title">
-            Building Smart, Stunning, & Scalable Websites
+            Your Business Deserves Software That
+            <br />
+            Actually Works — Not Just Looks Good
           </h1>
           <p className="header__description">
-            At JP WEB, we craft modern digital experiences with cutting-edge
-            technology, sleek design, and performance in mind. Let’s take your
-            online presence to the next level.
+            Stop wasting money on websites and apps that can't deliver.
+          </p>
+          <p className="header__description">
+            At JP WEB, we use our Digital Ecosystem Blueprint™ to connect your
+            website, payments, CRM, and tools — into one seamless system that
+            helps you sell more, scale faster, and stay secure.
           </p>
           <div className="header__buttons">
             <a
@@ -80,6 +88,11 @@ const Header = () => {
               </button>
             </a>
           </div>
+          <ul className="header__benefits">
+            <li>No more ghost developers or endless delays</li>
+            <li>Transparent process with guaranteed milestones</li>
+            <li>Your business stays in control — fast, secure, and scalable</li>
+          </ul>
         </div>
 
         <div className="header__content-image">
